@@ -19,8 +19,8 @@ Como se cada líder tivesse um mentor digital de empatia e performance, sempre p
 ## Estrutura do Repositório
 /Orion.Api  
   /Controllers  
+  /Data 
   /Models  
-  /Data  
   /Services  
   Program.cs
   appsettings.json
@@ -35,7 +35,39 @@ Como se cada líder tivesse um mentor digital de empatia e performance, sempre p
 ## Como rodar localmente
 1. `dotnet restore`
 2. Atualize `appsettings.json` com sua connection string
-3. `dotnet ef database update`
+3. Criação de DB SQL Server (Fizemos a criação pelo Azure Data Studio integrado no VSCode), mas dá para fazer pelo CLI com o comando `sqlcmd`
+```SQL
+-- Criação da tabela de Leaders
+CREATE TABLE Leaders (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    Name NVARCHAR(100) NOT NULL,
+    Role NVARCHAR(100) NOT NULL
+);
+
+-- Criação da tabela de Teams
+CREATE TABLE Teams (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    Name NVARCHAR(100) NOT NULL,
+    LeaderId INT NOT NULL,
+    FOREIGN KEY (LeaderId) REFERENCES Leaders(Id)
+    ON DELETE CASCADE
+);
+
+-- Criação da tabela de Members
+CREATE TABLE Members (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    Name NVARCHAR(100) NOT NULL,
+    TeamId INT NOT NULL,
+    FOREIGN KEY (TeamId) REFERENCES Teams(Id)
+    ON DELETE CASCADE
+);
+
+-- Inserts de exemplo (opcional)
+INSERT INTO Leaders (Name, Role) VALUES ('Ana Souza', 'Tech Lead');
+INSERT INTO Teams (Name, LeaderId) VALUES ('Time Alpha', 1);
+INSERT INTO Members (Name, TeamId) VALUES ('Carlos Silva', 1);
+```
+
 4. `dotnet run`
 5. Acesse `https://localhost:5016/swagger`
 
