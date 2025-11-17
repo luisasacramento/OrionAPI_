@@ -39,16 +39,11 @@ Como se cada líder tivesse um mentor digital de empatia e performance, sempre p
 4. `dotnet run`
 5. Acesse `https://localhost:5016/swagger`
 
-## Migrations
-Comandos: ...
 ## Documentação adicional
+- Swagger UI disponível em `/swagger`.
+- Versionamento nas rotas: `/api/v1/leaders` & `/api/v2/leaders`7
 - Fluxo da aplicação (link para `diagrams/orion-flow.drawio` ou PNG)
 - Vídeo demonstrativo: <link do YouTube> (máx 5 minutos)
-
-
-## Documentação da API
-- Swagger UI disponível em `/swagger`.
-- Versionamento nas rotas: `/api/v1/leaders`.
 
 
 ## Fluxo da aplicação
