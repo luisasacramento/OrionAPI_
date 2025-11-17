@@ -19,8 +19,8 @@ Como se cada líder tivesse um mentor digital de empatia e performance, sempre p
 ## Estrutura do Repositório
 /Orion.Api  
   /Controllers  
-  /Data 
-  /Models  
+  /Data  
+  /Models   
   /Services  
   Program.cs
   appsettings.json
@@ -69,7 +69,7 @@ INSERT INTO Members (Name, TeamId) VALUES ('Carlos Silva', 1);
 ```
 
 4. `dotnet run`
-5. Acesse `https://localhost:5016/swagger`
+5. Acesse `https://localhost:5016/swagger` ou o link que aparecer no terminal quando rodar
 
 ## Documentação adicional
 - Swagger UI disponível em `/swagger`.
