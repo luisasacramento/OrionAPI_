@@ -1,35 +1,31 @@
 # ORION — Copiloto de Liderança Humana
 
+## Integrantes
+- Gabriel Aparecido Cassalho Xavier RM99794
+- Gustavo Vegi RM550188
+- Luisa dos Santos Neves  RM551889
+
 ## Resumo
-Pequena descrição do propósito (já colocar o texto do seu propósito).
+Reinventar o papel da liderança no futuro do trabalho, unindo inteligência artificial e inteligência emocional para criar líderes mais empáticos, estratégicos e humanos.
+Como se cada líder tivesse um mentor digital de empatia e performance, sempre preparado com o contexto completo da equipe.
 
 ## Tecnologias
-- .NET 7 (ou 8)
+- .NET 8
 - ASP.NET Core Web API
 - Entity Framework Core
-- SQL Server (LocalDB / Azure SQL)
-- Swagger / Swashbuckle
+- SQL Server
+- Swagger
 
 ## Estrutura do Repositório
-/Orion.Api
-  /Controllers
-  /DTOs
-  /Models
-  /Data
-  /Services
+/Orion.Api  
+  /Controllers  
+  /Models  
+  /Data  
+  /Services  
   Program.cs
   appsettings.json
-/Orion.sln
-/README.md
-/diagrams/orion-flow.drawio
-/video/demo.mp4 (link no README)
 
-
-## Versionamento da API
-- Endpoint base: `/api/v1/`
-- Política: breaking changes => nova versão (v2)
-
-## Endpoints principais (exemplos)
+## Endpoints principais
 - `GET /api/v1/leaders` — Lista líderes (200)
 - `GET /api/v1/leaders/{id}` — Recupera líder (200/404)
 - `POST /api/v1/leaders` — Cria líder (201)
@@ -41,7 +37,7 @@ Pequena descrição do propósito (já colocar o texto do seu propósito).
 2. Atualize `appsettings.json` com sua connection string
 3. `dotnet ef database update`
 4. `dotnet run`
-5. Acesse `https://localhost:5001/swagger`
+5. Acesse `https://localhost:5016/swagger`
 
 ## Migrations
 Comandos: ...
@@ -49,91 +45,77 @@ Comandos: ...
 - Fluxo da aplicação (link para `diagrams/orion-flow.drawio` ou PNG)
 - Vídeo demonstrativo: <link do YouTube> (máx 5 minutos)
 
-## Considerações de design
-- Modelos, DTOs, validação, tratamento de erros global
-- Proteção: autenticação (opcional para entrega 1)
-
-## Contato / Autores
-- Seu nome, matrícula, disciplina, professor, data
-
-
-# ORION — Copiloto de Liderança Humana
-
-
-![Architecture](diagrams/orion-flow.png)
-
-
-## Tecnologias utilizadas
-- .NET 7 Web API
-- SQL Server + EF Core
-- Swagger
-- API Versioning
-
-
-## Instruções para rodar
-- Configure sua connection string no `appsettings.json`.
-- Execute `dotnet ef database update`.
-- Execute `dotnet run`.
-
 
 ## Documentação da API
 - Swagger UI disponível em `/swagger`.
 - Versionamento nas rotas: `/api/v1/leaders`.
 
 
-## Vídeo de demonstração
-- Link: <coloque aqui seu vídeo no YouTube>
-
-
 ## Fluxo da aplicação
 - Arquivo Draw.io em `diagrams/orion-flow.drawio`.
 
 
+## Exemplo para Testes na API 
+### 1. Criar um Líder (POST)
 
-API v1 — Simples e direta
+**Rota:**  
+`POST /api/v1/leaders`
 
-Endpoints: /api/v1/leaders
+**Corpo da requisição:**
+```json
+{
+  "name": "Ana Souza",
+  "role": "Tech Lead"
+}
+```
 
-Responsável por: Operações básicas com a entidade Leader (líder).
+### 2. Listar todos os Líders (GET)
 
-Retorno: Somente os dados da entidade Leader (id, nome, etc.).
+**Rota:**
+`GET /api/v1/leaders`
 
-Relacional: Não busca os times ou membros — mostra apenas os campos do líder.
+Resposta exemplo:
+```json
+[
+  {
+    "id": 1,
+    "name": "Ana Souza",
+    "role": "Tech Lead",
+    "teams": []
+  }
+]
+```
 
-📌 Exemplo de retorno no GET (/api/v1/leaders/1):
+### 3. Buscar Líder pelo ID (GET)
 
+**Rota:**
+`GET /api/v1/leaders/{id}`
+
+Resposta exemplo:
+```json
 {
   "id": 1,
-  "name": "Alice Silva",
-  "role": "Gerente de Projetos"
+  "name": "Ana Souza",
+  "role": "Tech Lead",
+  "teams": []
 }
+```
 
-🔸 API v2 — Completa e contextual
+### 4. Atualizar Líder (PUT)
 
-Endpoints: /api/v2/leaders
+**Rota:**
+`PUT /api/v1/leaders/{id}`
 
-Responsável por: Operações com líderes, mas com contexto completo: inclui seus times e os membros desses times.
-
-Relacional: Usa Include e ThenInclude para buscar:
-
-Leader → Teams → Members
-
-📌 Exemplo de retorno no GET (/api/v2/leaders/1):
-
+Corpo da requisição:
+```json
 {
-  "id": 1,
-  "name": "Alice Silva",
-  "role": "Gerente de Projetos",
-  "teams": [
-    {
-      "id": 10,
-      "name": "Time de Backend",
-      "members": [
-        { "id": 101, "name": "João", "role": "Dev" },
-        { "id": 102, "name": "Maria", "role": "Dev" }
-      ]
-    }
-  ]
+  "name": "Ana Paula Souza",
+  "role": "Senior Tech Lead"
 }
+```
 
-📑 Resumo d
+### 5. Deletar Líder (DELETE)
+
+**Rota:**
+`DELETE /api/v1/leaders/{id}`
+
