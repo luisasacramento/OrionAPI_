@@ -73,13 +73,12 @@ INSERT INTO Members (Name, TeamId) VALUES ('Carlos Silva', 1);
 
 ## Documentação adicional
 - Swagger UI disponível em `/swagger`.
-- Versionamento nas rotas: `/api/v1/leaders` & `/api/v2/leaders`7
-- Fluxo da aplicação (link para `ORION - Fluxo da Aplicação-ORION Flow.drawio.png`)
+- Versionamento nas rotas: `/api/v1/leaders` & `/api/v2/leaders`
 - Vídeo demonstrativo: <link do YouTube> (máx 5 minutos)
 
 
 ## Fluxo da aplicação
-- Arquivo Draw.io em `diagrams/orion-flow.drawio`.
+- Fluxo da aplicação -> Arquivo `ORION - Fluxo da Aplicação-ORION Flow.drawio.png`
 
 
 ## Exemplo para Testes na API 
