@@ -74,7 +74,7 @@ INSERT INTO Members (Name, TeamId) VALUES ('Carlos Silva', 1);
 ## Documentação adicional
 - Swagger UI disponível em `/swagger`.
 - Versionamento nas rotas: `/api/v1/leaders` & `/api/v2/leaders`
-- Vídeo demonstrativo: <link do YouTube> (máx 5 minutos)
+- Vídeo demonstrativo: https://youtu.be/p7lxE8gtFd4
 
 
 ## Fluxo da aplicação
