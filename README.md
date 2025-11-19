@@ -78,7 +78,7 @@ INSERT INTO Members (Name, TeamId) VALUES ('Carlos Silva', 1);
 
 
 ## Fluxo da aplicação
-- Fluxo da aplicação -> Arquivo `ORION - Fluxo da Aplicação-ORION Flow.drawio.png`
+- Fluxo da aplicação -> Arquivo na raiz do projeto aqui do github: `ORION - Fluxo da Aplicação-ORION Flow.drawio.png`
 
 
 ## Exemplo para Testes na API 
